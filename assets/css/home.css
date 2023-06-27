@@ -1,0 +1,194 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+
+    animation:bg-color 5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes bg-color {
+    from{
+        background-image: linear-gradient(to right,pink,lightblue);
+    }
+    to{
+        background-image: linear-gradient(to right,lightblue,pink);
+    }
+}
+#app h1 {
+    padding:10px;
+    color: rgb(8, 8, 235);
+}
+#app h2{
+    padding:10px;
+    color: rgb(0, 0, 0);
+}
+#project-list{
+    overflow-y: auto;
+    height: 80%;
+    width: 50%;
+    margin: auto;
+    padding:20px ;
+    margin-top: 20px;
+
+}
+#project-list li{
+    padding:20px;
+    display: flex;
+    align-items: center;
+   
+    background-color: rgb(9, 84, 184);
+    box-shadow: inset 0 0 3px 3px rgb(5, 66, 145);
+    padding:20px;
+    border-radius: 10px;
+    margin-block: 10px;
+    position: relative;
+}
+#project-list li:hover{
+    border-left:10px solid rgb(238, 241, 2);
+}
+.project-info{
+   
+}
+.project-info p{
+    font-family: sans-serif;
+    font-size: large;
+    color:white;
+}
+small,medium{
+    color: rgb(184, 179, 179);
+    font-size: medium;
+}
+#project-list li a{
+    position: absolute;
+    right: 10px;
+    color:white;
+    text-decoration-line: none;
+    padding:10px;
+    border-radius: 10px;
+    background-color: rgb(5, 31, 114);
+    box-shadow: inset 0 0 3px 3px rgb(3, 20, 78);
+
+}
+
+#project-list li a:hover{
+   border-bottom:solid white;
+
+}
+
+/* create project form and btn */
+#create-project-btn{
+    position: fixed;
+    font-size: 1rem;
+    right: 47%;
+    top: 110px;
+    color:white;
+    text-decoration-line: none;
+    padding:10px;
+    border-radius: 10px;
+    background-color: rgb(5, 31, 114);
+    box-shadow: inset 0 0 3px 3px rgb(3, 20, 78);
+    /* animation:resize 2s ease-in-out 0s infinite alternate; */
+}
+
+@keyframes resize {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+#create-project-btn:hover{
+    border-bottom:5px solid rgb(235, 252, 7);
+ 
+ }
+
+
+ /* create form */
+ #create-project-form{
+    display: none;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(3, 3, 71, 0.582);
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+#create-project-form div{
+    padding: 20px;
+    background-color: rgb(243, 214, 177);
+    border-radius: 20px;
+}
+ input{
+    height: 50px;
+    width:400px;
+    padding: 10px;
+    border-radius: 10px;
+    border:none;
+    
+ }
+ input:focus{
+    outline: none;
+    box-shadow: 0 0 3px 3px lightblue;
+    border: 3px solid lightblue;
+ }
+
+ #create-project-form-btn {
+   display: flex;
+   justify-content: space-between;
+ }
+ #create-project-form-btn input{
+    height: 50px;
+    width:150px;
+    color: white;
+    background-color: rgb(4, 39, 114);
+    font-size: large;
+ }
+
+#create-project-cancel-btn{
+    text-decoration-line: none;
+    height: 50px;
+    width:150px;
+    color: white;
+    background-color: rgb(238, 15, 7);
+    font-size: large;
+    border-radius: 10px;
+
+    /* to center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-project-form-btn input:hover , #create-project-cancel-btn:hover{
+    box-shadow: 0 0 2px 2px lightblue;
+     border: 2px solid lightblue;
+  }
+ #create-project-form:target{
+    display: flex;
+ }
+@media screen and (max-width:500px) {
+    #project-list{
+        width:80%;
+    }
+
+    #create-project-btn{
+        font-size: .8rem;
+        animation: none;
+        top:110px;
+        right:200px;
+    }
+}
+

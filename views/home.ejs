@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="./css/home.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+   <div id="app">
+        <h1>Issue Tracker</h1>
+        <hr>
+        <h2>list of projects</h2>
+        <ul id="project-list">
+            <% for(let i=0;i< projects.length;i++){ %>
+               <li>
+                    <div class="project-info">
+                        <p><%= projects[i].title%> 
+                            <medium>(<%= projects[i].author%>)</medium></p>
+                    </div>
+                    <a href="/details-page">Details</a >
+               </li>
+            <%  } %>
+        
+        </ul>
+
+        <a href="#create-project-form" id="create-project-btn">Create Project</a>
+        <form id="create-project-form" action="/create-project" method="post">
+            <div>
+                <h2>Create Project</h2>
+            </div>
+            <div>
+                <input type="text" required name="name" placeholder="Enter project name">
+            <div>
+            <div>
+                <input type="text" required name="description" placeholder="Enter project description">
+            </div>
+            <div>
+                <input type="text" required name="author" placeholder="Enter project author name">
+            </div>
+            <div id="create-project-form-btn">
+                <input type="submit" value="Create Project">
+                <a href="#project-list" id="create-project-cancel-btn">Cancel</a>
+            </div>
+        </form>
+   </div>
+</body>
+</html>
