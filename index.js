@@ -15,6 +15,7 @@
 
 const express = require("express");
 const app = express();
+const db = require('./config/mongoose');
 //MW to decode req
 app.use(express.urlencoded());
 
@@ -26,24 +27,25 @@ app.set('views',path.join(__dirname,"views"));//path views folder give to templa
 //MW for assets static file provide
 app.use(express.static(path.join(__dirname,"/assets")));
 
-app.get('/',(req,res)=>{
-    res.render('home',{
-        projects:[
-            {title:"movie cart",author:"Xenim"},
-            {title:"shop cart",author:"hon"},
-            {title:"lens cart",author:"yon"},
-            {title:"food cart",author:"ok"},
-            {title:"shoes cart",author:"zin"},
-            {title:"movie cart",author:"Xenim"},
-            {title:"shop cart",author:"hon"},
-            {title:"lens cart",author:"yon"},
-            {title:"food cart",author:"ok"},
-            {title:"shoes cart",author:"zin"}
-        ]
-    })
-})
+// app.get('/',(req,res)=>{
+//     res.render('home',{
+//         projects:[
+//             {title:"movie cart",author:"Xenim"},
+//             {title:"shop cart",author:"hon"},
+//             {title:"lens cart",author:"yon"},
+//             {title:"food cart",author:"ok"},
+//             {title:"shoes cart",author:"zin"},
+//             {title:"movie cart",author:"Xenim"},
+//             {title:"shop cart",author:"hon"},
+//             {title:"lens cart",author:"yon"},
+//             {title:"food cart",author:"ok"},
+//             {title:"shoes cart",author:"zin"}
+//         ]
+//     })
+// }) 
 
-
+//router mw to use router
+app.use('/',require("./routers/homeRouter")); //for any url start with '/' a router mw get called
 app.listen(8000,(e)=>{
     if(e){
         console.log("error",error);

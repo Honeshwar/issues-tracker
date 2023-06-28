@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/details.css">
+</head>
+<body>
+
+
+   <header id="details-header">
+        <h1>Project Details</h1>
+        <p>
+            <span>Title:</span> 
+            <%=project.name%>
+           <small> <em style="font-family:cursive">(Author:<%=project.author%>)</em></small>
+        </p>
+        <p>
+            <span>Description:</span> 
+            <%=project.description%>
+        </p>
+
+        <nav id="header-btn">
+            <a href="#create-project-form">Create Issue</a>
+            <a href="/">Go Back</a>
+        </nav>
+   </header>
+   
+ 
+
+   <section id="search-issue">
+        <h2>List of Issues</h2>
+        <hr>
+        <div id="search-inputs-and-btn-container">
+            <div class="input-container">
+                <input type="text" name="search" placeholder="Search by title or labels">
+                <button type="submit">Search</button>
+            </div>
+            <div class="input-container">
+                <select name="" id=""></select>
+                <button type="submit">Search</button>
+            </div>
+            <div class="input-container">
+                <input type="text" name="" placeholder="search by author">
+                <button type="submit">Search</button>
+            </div>
+        </div>
+        <hr>
+   </section>
+
+   <section id="issue-table">
+        <table >
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- iterate over issues -->
+                <tr>
+                    <td>Cart</td>
+                    <td>basic cart</td>
+                    <td>ZIn</td>
+                    <td class="open">Open</td>
+                </tr>
+                <tr>
+                    <td>movie app</td>
+                    <td>basic movie app</td>
+                    <td>Honeshwar</td>
+                    <td class="open">Open</td>
+                </tr>
+                <tr>
+                    <td>Cart</td>
+                    <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et dolore, perferendis sunt aliquam molestiae corrupti perspiciatis quos. Earum iusto totam consequatur voluptate cupiditate magni nam! Natus, ratione explicabo! Ex, animi!</td>
+                    <td>ZIn</td>
+                    <td class="open">Open</td>
+                </tr>
+                <tr>
+                    <td>movie app</td>
+                    <td>basic movie app</td>
+                    <td>Honeshwar</td>
+                    <td class="open">Open</td>
+                </tr>
+                <tr>
+                    <td>Cart</td>
+                    <td>basic cart</td>
+                    <td>ZIn</td>
+                    <td class="open">Open</td>
+                </tr>
+                <tr>
+                    <td>movie app</td>
+                    <td>basic movie app</td>
+                    <td>Honeshwar</td>
+                    <td class="open">Open</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">copyright &copy; </td>
+                </tr>
+            </tfoot>
+        </table>
+   </section>
+
+   <form id="create-project-form" action="./project/create-issue" method="post">
+   
+    <div>
+        <h2>CREATE ISSUE</h2>
+    </div>
+
+    <div>
+        <div>
+            <input type="text" required name="title" placeholder="Title">
+        </div>
+    
+        <div>
+            <input type="text" required name="description" placeholder="Description">
+        </div>
+    
+        <div>
+            <input type="text" required name="labels" placeholder="Enter labels more than one separated by comas">
+        </div>
+
+        <div>
+            <input type="text" required name="author" placeholder="Author Name">
+        </div>
+
+        <div id="create-project-form-btn">
+            <button type="submit"> Create Issue</button>
+            <a href="#details-header" id="create-project-cancel-btn">Close</a>
+        </div>
+    
+    </div>
+
+    
+   </form>
+</body>
+</html>

@@ -1,0 +1,281 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* text-align: center; */
+    height: 100vh;
+    width: 100vw;
+
+    animation:bg-color 5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes bg-color {
+    from{
+        background-image: linear-gradient(to right,pink,lightblue);
+    }
+    to{
+        background-image: linear-gradient(to right,lightblue,pink);
+    }
+}
+
+
+
+/* header */
+header{
+height: 30%;
+padding: 10px;
+}
+
+header h1{
+    padding: 10px 20px;
+}
+header p{
+padding:7px 20px;
+}
+header p{
+    font-family: sans-serif;
+}
+header p span{
+   font-weight: 900;
+}
+header p small{
+    color:gray;
+}
+
+#header-btn{
+    padding: 30px 20px;
+    
+}
+#header-btn a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(10, 14, 12);
+    border-radius: 10px;
+    padding:10px;
+    margin-right: 5px;
+}
+#header-btn a:hover{
+    border-bottom: 4px solid rgb(255, 255, 252);
+}
+#header-btn a:first-child{
+    background-color: rgb(9, 138, 73);
+    box-shadow: inset 0 0 2px 2px rgb(2, 87, 44);
+}
+
+#header-btn a:last-child{
+    background-color: rgb(172, 3, 3);
+    box-shadow: inset 0 0 2px 2px rgb(102, 4, 4);
+}
+
+
+/* search-issue */
+
+#search-issue{
+    width: 100%;
+    padding: 10px;
+}
+#search-issue h2{
+    text-align: center;
+    padding: 10px;
+}
+
+#search-inputs-and-btn-container{
+    padding:20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-container{
+    width:33%;
+    /* border:solid; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container input,.input-container  select{
+    height:30px;
+    margin-right: 10px;
+    padding-left: 5px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 2px 2px rgb(140, 205, 224);
+}
+.input-container input:focus,.input-container  select:focus{
+   outline: none;
+   border:2px solid lightblue;
+}
+
+.input-container button{
+   padding:9px;
+   border-radius: 10px;
+   border:none;
+    color: white;
+  
+   background-color: rgb(82, 91, 211);
+   box-shadow: inset 0 0 2px 2px rgb(48, 53, 128);
+
+}
+
+.input-container button:hover{
+    background-color: rgb(0, 4, 56);
+    box-shadow: inset 0 0 2px 2px rgb(1, 3, 32)
+ 
+ 
+ }
+
+
+ /* issue table */
+
+ #issue-table{
+    width: 100%;
+    height: 47%;
+    overflow-y: auto;
+    /* border: solid; */
+ }
+
+ #issue-table table{
+    width: 70%;
+    height: 100%;
+    border-spacing: 10px;
+    text-align: center;
+    margin: auto;
+    overflow-y: auto;
+ }
+ 
+ table thead{
+    position: sticky;
+    top: 0px;
+ }
+ table th{
+    background-color: wheat;
+    box-shadow: inset 0 0 2px 2px black;
+    padding:10px;
+    border-radius: 10px;
+ }
+
+tbody{
+   color: #fff;
+    height: 80%;
+    border: solid;
+}
+ tbody tr td{
+    padding: 10px;
+    background-color: rgb(9, 69, 88);
+    box-shadow: inset 0 0 2px 2px rgb(2, 41, 53);
+    border-radius: 10px;
+
+    text-align: justify;
+ } 
+
+ .open{
+    background-color: rgb(8, 187, 8);
+    box-shadow: inset 0 0 2px 2px rgb(4, 99, 4);
+ }
+
+
+
+ 
+/* create project form and btn */
+
+#create-project-btn{
+    position: fixed;
+    font-size: 1rem;
+    right: 47%;
+    top: 110px;
+    color:white;
+    text-decoration-line: none;
+    padding:10px;
+    border-radius: 10px;
+    background-color: rgb(5, 31, 114);
+    box-shadow: inset 0 0 3px 3px rgb(3, 20, 78);
+    /* animation:resize 2s ease-in-out 0s infinite alternate; */
+}
+@keyframes resize {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+#create-project-btn:hover{
+    border-bottom:5px solid rgb(235, 252, 7);
+ 
+ }
+
+ /* create form */
+ #create-project-form{
+    display: none;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(3, 3, 71, 0.582);
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+#create-project-form div{
+    padding: 20px;
+    background-color: rgb(243, 214, 177);
+    border-radius: 20px;
+}
+#create-project-form div input{
+    height: 50px;
+    width:400px;
+    padding: 10px;
+    border-radius: 10px;
+    border:none;
+    
+ }
+ #create-project-form div input:focus{
+    outline: none;
+    box-shadow: 0 0 3px 3px lightblue;
+    border: 3px solid lightblue;
+ }
+ #create-project-form-btn {
+   display: flex;
+   justify-content: space-between;
+ }
+ #create-project-form-btn button{
+    height: 50px;
+    width:150px;
+    color: white;
+    background-color: rgb(4, 39, 114);
+    border: none;
+    box-shadow: inset 0 0 2px 2px rgb(2, 21, 63);
+    border-radius: 10px;
+    font-size: large;
+ }
+#create-project-cancel-btn{
+    text-decoration-line: none;
+    height: 50px;
+    width:150px;
+    color: white;
+    background-color: rgb(238, 15, 7);
+    box-shadow: inset 0 0 2px 2px rgb(134, 9, 5);
+    font-size: large;
+    border-radius: 10px;
+
+    /* to center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#create-project-form-btn button:hover , #create-project-cancel-btn:hover{
+    box-shadow: 0 0 2px 2px lightblue;
+     border: 2px solid lightblue;
+  }
+ #create-project-form:target{
+    display: flex;
+ }

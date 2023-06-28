@@ -52,9 +52,7 @@
 #project-list li:hover{
     border-left:10px solid rgb(238, 241, 2);
 }
-.project-info{
-   
-}
+
 .project-info p{
     font-family: sans-serif;
     font-size: large;
