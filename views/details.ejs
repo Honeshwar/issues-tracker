@@ -33,18 +33,23 @@
         <h2>List of Issues</h2>
         <hr>
         <div id="search-inputs-and-btn-container">
-            <div class="input-container">
-                <input type="text" name="search" placeholder="Search by title or labels">
+            <form id="search-by-title-or-label" class="input-container" data-projectId="<%= project.id%>">
+                <input type="text" name="search" placeholder="Search by title or label" required>
                 <button type="submit">Search</button>
-            </div>
-            <div class="input-container">
-                <select name="" id=""></select>
+            </form>
+            <form id="search-by-author" class="input-container" data-projectId="<%= project.id%>">
+
+                <select name="author" id="" required>
+                   <% for(let i=0;i<authors.length;i++){ %>
+                    <option value="<%= authors[i]%>"><%= authors[i] %></option>
+                   <%}%>
+                </select>
                 <button type="submit">Search</button>
-            </div>
-            <div class="input-container">
-                <input type="text" name="" placeholder="search by author">
-                <button type="submit">Search</button>
-            </div>
+            </form>
+            <form id="clear-filter" class="input-container" data-projectId="<%= project.id%>">
+                <!-- <input type="text" name="" placeholder="search by author"> -->
+                <button type="submit">Clear Filter</button>
+            </form>
         </div>
         <hr>
    </section>
@@ -59,57 +64,35 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="table-body">
+
+                <%if(issues.length===0){%>
+                    <tr>
+                        <td colspan='4' style="text-align:center">No issue found!, Added issue display here..</td>
+                    </tr>
+                <%}%>
                 <!-- iterate over issues -->
-                <tr>
-                    <td>Cart</td>
-                    <td>basic cart</td>
-                    <td>ZIn</td>
-                    <td class="open">Open</td>
-                </tr>
-                <tr>
-                    <td>movie app</td>
-                    <td>basic movie app</td>
-                    <td>Honeshwar</td>
-                    <td class="open">Open</td>
-                </tr>
-                <tr>
-                    <td>Cart</td>
-                    <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et dolore, perferendis sunt aliquam molestiae corrupti perspiciatis quos. Earum iusto totam consequatur voluptate cupiditate magni nam! Natus, ratione explicabo! Ex, animi!</td>
-                    <td>ZIn</td>
-                    <td class="open">Open</td>
-                </tr>
-                <tr>
-                    <td>movie app</td>
-                    <td>basic movie app</td>
-                    <td>Honeshwar</td>
-                    <td class="open">Open</td>
-                </tr>
-                <tr>
-                    <td>Cart</td>
-                    <td>basic cart</td>
-                    <td>ZIn</td>
-                    <td class="open">Open</td>
-                </tr>
-                <tr>
-                    <td>movie app</td>
-                    <td>basic movie app</td>
-                    <td>Honeshwar</td>
-                    <td class="open">Open</td>
-                </tr>
+               <% for(let i=issues.length-1;i>=0;i--){ %>
+                    <tr>
+                        <td><%= issues[i].title %></td>
+                        <td><%= issues[i].description %></td>
+                        <td><%= issues[i].author %></td>
+                        <td class="open">Open</td>
+                    </tr>
+                <% } %>
             </tbody>
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                     <td colspan="4">copyright &copy; </td>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
    </section>
-
-   <form id="create-project-form" action="./project/create-issue" method="post">
+<!-- ../  current(location) url path one path back -->
+   <form id="create-issue-form" action="../create-issue/<%= project.id%>" method="post">
    
     <div>
-        <h2>CREATE ISSUE</h2>
+        <h1>CREATE ISSUE</h1>
     </div>
 
     <div>
@@ -130,6 +113,7 @@
         </div>
 
         <div id="create-project-form-btn">
+            <!-- <input type="hidden" name="projectId" value="<%= project.id%>"> -->
             <button type="submit"> Create Issue</button>
             <a href="#details-header" id="create-project-cancel-btn">Close</a>
         </div>
@@ -138,5 +122,8 @@
 
     
    </form>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="/js/details.js"></script>
 </body>
 </html>

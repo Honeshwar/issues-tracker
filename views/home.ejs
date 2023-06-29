@@ -11,7 +11,7 @@
         <h1>Issue Tracker</h1>
         <hr>
         <h2>list of projects</h2>
-      <%if(locals.projects){%>
+      <%if(locals.projects.length !== 0){%>
         <ul id="project-list">
             <% for(let i=0;i< projects.length;i++){ %>
                <li>
@@ -25,13 +25,13 @@
         
         </ul>
       <%}else{%>
-        <h3 style="padding: 20px;margin-top: 50px;">No Project is present in your database...</h3>
+            <h3 style="padding: 20px;margin-top: 50px;font-family: cursive;">No Project is present in our database...</h3>
       <%}%>
       
       <a href="#create-project-form" id="create-project-btn">Create Project</a>
       <form id="create-project-form" action="./project/create/" method="post">
           <div>
-              <h2>Create Project</h2>
+              <h1>Create Project</h1>
           </div>
           <div>
               <input type="text" required name="name" placeholder="Enter project name">

@@ -1,34 +1,22 @@
+/*  reset all default styling */
 *{
     padding:0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/*  body styling */
 body{
-    /* text-align: center; */
     height: 100vh;
     width: 100vw;
-
-    animation:bg-color 5s ease-in-out 0s infinite alternate;
+    background-image: linear-gradient(to right,rgb(166, 208, 241),rgb(179, 215, 245));
 }
 
-@keyframes bg-color {
-    from{
-        background-image: linear-gradient(to right,pink,lightblue);
-    }
-    to{
-        background-image: linear-gradient(to right,lightblue,pink);
-    }
-}
-
-
-
-/* header */
+/*********************** header ************************/
 header{
 height: 30%;
 padding: 10px;
 }
-
 header h1{
     padding: 10px 20px;
 }
@@ -44,7 +32,7 @@ header p span{
 header p small{
     color:gray;
 }
-
+/* header buttons */
 #header-btn{
     padding: 30px 20px;
     
@@ -64,14 +52,13 @@ header p small{
     background-color: rgb(9, 138, 73);
     box-shadow: inset 0 0 2px 2px rgb(2, 87, 44);
 }
-
 #header-btn a:last-child{
     background-color: rgb(172, 3, 3);
     box-shadow: inset 0 0 2px 2px rgb(102, 4, 4);
 }
 
 
-/* search-issue */
+/*********************** search issue section ************************/
 
 #search-issue{
     width: 100%;
@@ -82,6 +69,7 @@ header p small{
     padding: 10px;
 }
 
+/* search inputs and buttons container */
 #search-inputs-and-btn-container{
     padding:20px 10px;
     display: flex;
@@ -89,15 +77,13 @@ header p small{
     align-items: center;
 }
 
+/* inputs */
 .input-container{
     width:33%;
-    /* border:solid; */
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .input-container input,.input-container  select{
     height:30px;
     margin-right: 10px;
@@ -110,7 +96,7 @@ header p small{
    outline: none;
    border:2px solid lightblue;
 }
-
+/* buttons */
 .input-container button{
    padding:9px;
    border-radius: 10px;
@@ -121,96 +107,83 @@ header p small{
    box-shadow: inset 0 0 2px 2px rgb(48, 53, 128);
 
 }
-
 .input-container button:hover{
     background-color: rgb(0, 4, 56);
     box-shadow: inset 0 0 2px 2px rgb(1, 3, 32)
+}
+#clear-filter button{
+    background-color: rgb(219, 5, 5);
+    box-shadow: inset 0 0 2px 2px rgb(163, 6, 6);
  
+}
+#clear-filter button:hover{
+    background-color: rgb(163, 6, 6);
+    box-shadow: inset 0 0 2px 2px rgb(219, 5, 5);
  
- }
+}
 
 
- /* issue table */
-
- #issue-table{
+/*********************** issue table section ************************/
+#issue-table{
     width: 100%;
     height: 47%;
     overflow-y: auto;
-    /* border: solid; */
- }
+}
 
- #issue-table table{
+ /* table */
+#issue-table table{
     width: 70%;
-    height: 100%;
     border-spacing: 10px;
     text-align: center;
     margin: auto;
     overflow-y: auto;
- }
- 
- table thead{
+}
+
+ /* table header */
+table thead{
     position: sticky;
     top: 0px;
- }
- table th{
+}
+thead tr th{
     background-color: wheat;
     box-shadow: inset 0 0 2px 2px black;
     padding:10px;
     border-radius: 10px;
- }
+}
 
+/* table body */
 tbody{
    color: #fff;
-    height: 80%;
-    border: solid;
 }
- tbody tr td{
+tbody tr td{
     padding: 10px;
     background-color: rgb(9, 69, 88);
     box-shadow: inset 0 0 2px 2px rgb(2, 41, 53);
     border-radius: 10px;
 
     text-align: justify;
- } 
+    text-align: center;
+    font-family: monospace;
+    line-height: 25px;
+    letter-spacing: 1px;
+    font-size: .9rem;
 
- .open{
+} 
+
+/* status column */
+.open{
+    text-shadow: 0 0 2px rgb(15, 8, 8);
     background-color: rgb(8, 187, 8);
     box-shadow: inset 0 0 2px 2px rgb(4, 99, 4);
- }
+}
 
 
 
  
-/* create project form and btn */
+/***********************  create Issue form section ************************/
 
-#create-project-btn{
-    position: fixed;
-    font-size: 1rem;
-    right: 47%;
-    top: 110px;
-    color:white;
-    text-decoration-line: none;
-    padding:10px;
-    border-radius: 10px;
-    background-color: rgb(5, 31, 114);
-    box-shadow: inset 0 0 3px 3px rgb(3, 20, 78);
-    /* animation:resize 2s ease-in-out 0s infinite alternate; */
-}
-@keyframes resize {
-    from{
-        transform: scale(1);
-    }
-    to{
-        transform: scale(1.1);
-    }
-}
-#create-project-btn:hover{
-    border-bottom:5px solid rgb(235, 252, 7);
- 
- }
-
- /* create form */
- #create-project-form{
+ /* create issue form */
+#create-issue-form{
     display: none;
 
     position: fixed;
@@ -219,35 +192,41 @@ tbody{
     top: 0;
     left: 0;
 
-    background-color: rgba(3, 3, 71, 0.582);
+    background-color: rgba(5, 109, 109, 0.882);
 
     justify-content: center;
     align-items: center;
     flex-direction: column;
- }
-#create-project-form div{
+}
+
+ /* inputs */
+#create-issue-form div{
     padding: 20px;
-    background-color: rgb(243, 214, 177);
     border-radius: 20px;
 }
-#create-project-form div input{
+#create-issue-form div h1{
+    color: #fff;
+}
+#create-issue-form div input{
     height: 50px;
     width:400px;
     padding: 10px;
     border-radius: 10px;
     border:none;
     
- }
- #create-project-form div input:focus{
+}
+#create-issue-form div input:focus{
     outline: none;
     box-shadow: 0 0 3px 3px lightblue;
     border: 3px solid lightblue;
- }
- #create-project-form-btn {
+}
+
+ /* buttons */
+#create-issue-form-btn {
    display: flex;
    justify-content: space-between;
- }
- #create-project-form-btn button{
+}
+#create-issue-form-btn button{
     height: 50px;
     width:150px;
     color: white;
@@ -256,7 +235,7 @@ tbody{
     box-shadow: inset 0 0 2px 2px rgb(2, 21, 63);
     border-radius: 10px;
     font-size: large;
- }
+}
 #create-project-cancel-btn{
     text-decoration-line: none;
     height: 50px;
@@ -272,10 +251,17 @@ tbody{
     justify-content: center;
     align-items: center;
 }
-#create-project-form-btn button:hover , #create-project-cancel-btn:hover{
+#create-issue-form-btn button:hover , #create-project-cancel-btn:hover{
     box-shadow: 0 0 2px 2px lightblue;
      border: 2px solid lightblue;
-  }
- #create-project-form:target{
+}
+
+/* on target  display form */
+#create-issue-form:target{
     display: flex;
- }
+}
+
+/* all buttons cursor = pointer */
+button{
+    cursor: pointer;
+}

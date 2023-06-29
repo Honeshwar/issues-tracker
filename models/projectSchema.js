@@ -14,6 +14,10 @@ const projectSchema = new mongoose.Schema({
         type:String,
         required:true
      },
+     issues:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Issues",// refer to issues collection/model in db ,so we can populate in this collection using project collection, without using issues.find()
+      }]
      
 },{timestamps:true});
 
