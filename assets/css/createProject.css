@@ -24,7 +24,7 @@
 
     margin: 10px;
     background-color: rgb(6, 88, 126);
-    box-shadow: inset 0 0 1px 2px rgb(2, 41, 59);
+    box-shadow: inset 0 -3px 1px 2px rgb(2, 41, 59);
 
     /* to center text */
     display: flex;
@@ -99,11 +99,11 @@ input:focus{
 }
 #create-project-form-btn button:first-child{
     background-color: rgb(4, 39, 114);
-    box-shadow:inset 0 0 2px 2px rgb(2, 20, 59);;
+    box-shadow:inset 0 -3px 2px 2px rgb(2, 20, 59);;
 }
 #create-project-form-btn button:last-child{
     background-color: rgb(226, 17, 10);
-    box-shadow:inset 0 0 2px 2px rgb(119, 10, 6);
+    box-shadow:inset 0 -3px 2px 2px rgb(119, 10, 6);
 }
 #create-project-form-btn button:hover {
     box-shadow: 0 0 1px 2px rgb(121, 176, 240);
