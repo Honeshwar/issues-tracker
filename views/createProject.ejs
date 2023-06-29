@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+    <!-- add stylesheet -->
+    <link href="/css/createProject.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- go back btn -->
+    <div id="go-back">
+        <a href="/" title="go back to home">Go Back</a>
+    </div>
+      <!-- create project form html code -->
+        <form id="create-project-form" action="./create-project/create" method="post">
+            <div>
+                <h1>Create Project</h1>
+            </div>
+            <div>
+                <input type="text" required name="name" placeholder="Enter project name">
+            </div>
+            <div>
+                <input type="text" required name="description" placeholder="Enter project description">
+            </div>
+            <div>
+                <input type="text" required name="author" placeholder="Enter project author name">
+            </div>
+            <div id="create-project-form-btn">
+                <button type="submit"> Create Project</button>
+                <button type="reset"> Reset</button>
+            </div>
+        </form>
+
+</body>
+</html>

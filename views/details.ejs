@@ -23,7 +23,7 @@
         </p>
 
         <nav id="header-btn">
-            <a href="#create-project-form">Create Issue</a>
+            <a href="./create-issue/<%= project.id %>">Create Issue</a>
             <a href="/">Go Back</a>
         </nav>
    </header>
@@ -92,40 +92,7 @@
 
     <!-- create issue form in details page -->
     <!-- ../  current(location) url path one path back -->
-   <form id="create-issue-form" action="../create-issue/<%= project.id%>" method="post">
-   
-    <div>
-        <h1>CREATE ISSUE</h1>
-    </div>
-
-    <div>
-        <div>
-            <input type="text" required name="title" placeholder="Title">
-        </div>
-    
-        <div>
-            <input type="text" required name="description" placeholder="Description">
-        </div>
-    
-        <div>
-            <input type="text" required name="labels" placeholder="Enter labels more than one separated by comas">
-        </div>
-
-        <div>
-            <input type="text" required name="author" placeholder="Author Name">
-        </div>
-
-        <div id="create-project-form-btn">
-            <!-- <input type="hidden" name="projectId" value="<%= project.id%>"> -->
-            <button type="submit"> Create Issue</button>
-            <a href="#details-header" id="create-project-cancel-btn">Close</a>
-        </div>
-    
-    </div>
-
-    
-   </form>
-
+ 
    <!-- all scripts -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script src="/js/details.js"></script>

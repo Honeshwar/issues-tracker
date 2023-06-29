@@ -25,7 +25,7 @@
                             <p><%= projects[i].name%> 
                                 <medium>(<%= projects[i].author%>)</medium></p>
                         </div>
-                        <a href="./project/details/<%= projects[i].id%>">Details</a >
+                        <a href="./details/<%= projects[i].id%>">Details</a >
                    </li>
                 <%  } %>
             
@@ -37,25 +37,7 @@
       
       <!-- create project form and button html code -->
       <div id="create-project-form-and-btn">
-        <a href="#create-project-form" id="create-project-btn">Create Project</a>
-        <form id="create-project-form" action="./project/create/" method="post">
-            <div>
-                <h1>Create Project</h1>
-            </div>
-            <div>
-                <input type="text" required name="name" placeholder="Enter project name">
-            <div>
-            <div>
-                <input type="text" required name="description" placeholder="Enter project description">
-            </div>
-            <div>
-                <input type="text" required name="author" placeholder="Enter project author name">
-            </div>
-            <div id="create-project-form-btn">
-                <input type="submit" value="Create Project">
-                <a href="#project-list" id="create-project-cancel-btn">Cancel</a>
-            </div>
-        </form>
+        <a href="/create-project" id="create-project-btn">Create Project</a>
       </div>
    </div>
 

@@ -1,0 +1,114 @@
+/*  reset all default styling */
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/****************************** go back styling  *****************************/
+
+#go-back a{
+    z-index: 1;
+    position: fixed;
+    top:0;
+    left: 0;
+    text-decoration: none;
+
+    height: 40px;
+    width:100px;
+    color: white;
+    font-size: large;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+
+    margin: 10px;
+    background-color: rgb(6, 88, 126);
+    box-shadow: inset 0 0 1px 2px rgb(2, 41, 59);
+
+    /* to center text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#go-back a:hover {
+    box-shadow: 0 0 3px 3px rgb(251, 253, 255);
+    /* border: 2px solid rgb(246, 249, 250); */
+
+}
+
+
+ /* create form */
+ #create-project-form{
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    
+    background-color: rgba(5, 109, 109, 0.882);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#create-project-form div{
+    width: 400px;
+    padding: 20px 15px;
+    border-radius: 20px;
+
+    color: #fff;
+}
+#create-project-form div h1{
+    text-align: center;
+    color: #fff;
+    text-shadow: 0  0 2px black;
+}
+
+/* inputs */
+input{
+    height: 50px;
+    width:100%;
+    padding: 10px;
+    border-radius: 10px;
+    border:none;
+    box-shadow:inset 0 0 2px 2px rgb(188, 190, 194);;
+
+}
+input:focus{
+    outline: none;
+    box-shadow: 0 0 1px 3px rgb(121, 176, 240);
+    border: 3px solid rgb(7, 172, 228);
+}
+
+ /* buttons */
+#create-project-form-btn{
+    display: flex;
+    justify-content: space-between;
+}
+#create-project-form-btn button{
+    height: 50px;
+    width:140px;
+    color: white;
+    font-size: large;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#create-project-form-btn button:first-child{
+    background-color: rgb(4, 39, 114);
+    box-shadow:inset 0 0 2px 2px rgb(2, 20, 59);;
+}
+#create-project-form-btn button:last-child{
+    background-color: rgb(226, 17, 10);
+    box-shadow:inset 0 0 2px 2px rgb(119, 10, 6);
+}
+#create-project-form-btn button:hover {
+    box-shadow: 0 0 1px 2px rgb(121, 176, 240);
+    border: 2px solid rgb(7, 172, 228);
+
+}
+
+

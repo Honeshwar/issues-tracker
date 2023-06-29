@@ -45,7 +45,7 @@ searchByTitleOrLabelForm.onsubmit = function(e){
     //do ajax request
     $.ajax({
         method:"Post",
-        url: `../search-by-title/${projectId}`,
+        url: `./search-by-title/${projectId}`,
         data:{search:e.target[0].value},
         success:function(resDataJson){
             // add issue to table body
@@ -66,7 +66,7 @@ searchByAuthorForm.onsubmit = function(e){
     // do ajax request
     $.ajax({
         method:"Post",
-        url: `../search-by-author/${projectId}`,
+        url: `./search-by-author/${projectId}`,
         data:{author:e.target[0].value},
         success:function(resDataJson){
             // add issue to table body
@@ -85,7 +85,7 @@ clearFilter.onsubmit = function(e){
     // do ajax request
     $.ajax({
         method:"get",
-        url: `../clear-filter/${projectId}`,
+        url: `./clear-filter/${projectId}`,
         success:function(resDataJson){
             // add issues to table body
             addIssuesToTableBody(resDataJson.data.issues);            
