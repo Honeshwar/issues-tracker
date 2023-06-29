@@ -37,4 +37,7 @@ this application tracking issues of project
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://honeshwar.github.io/issues-tracker/assets/images/1.png)
+![App Screenshot](https://honeshwar.github.io/issues-tracker/assets/images/2.png)
+![App Screenshot](https://honeshwar.github.io/issues-tracker/assets/images/3.png)
+![App Screenshot](https://honeshwar.github.io/issues-tracker/assets/images/4.png)
