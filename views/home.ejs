@@ -4,49 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- add stylesheet -->
     <link href="./css/home.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- entire app -->
    <div id="app">
-        <h1>Issue Tracker</h1>
-        <hr>
-        <h2>list of projects</h2>
-      <%if(locals.projects.length !== 0){%>
-        <ul id="project-list">
-            <% for(let i=0;i< projects.length;i++){ %>
-               <li>
-                    <div class="project-info">
-                        <p><%= projects[i].name%> 
-                            <medium>(<%= projects[i].author%>)</medium></p>
-                    </div>
-                    <a href="./project/details/<%= projects[i].id%>">Details</a >
-               </li>
-            <%  } %>
-        
-        </ul>
-      <%}else{%>
-            <h3 style="padding: 20px;margin-top: 50px;font-family: cursive;">No Project is present in our database...</h3>
-      <%}%>
+        <!-- app heading and subheading -->
+        <div id="heading-and-list-of-projects">
+            <h1>Issue Tracker</h1>
+            <hr>
+            <h2>list of projects</h2>
+    
+            <!-- list of projects -->
+          <%if(locals.projects.length !== 0){%>
+            <ul id="project-list">
+                <% for(let i=0;i< projects.length;i++){ %>
+                   <li>
+                        <div class="project-info">
+                            <p><%= projects[i].name%> 
+                                <medium>(<%= projects[i].author%>)</medium></p>
+                        </div>
+                        <a href="./project/details/<%= projects[i].id%>">Details</a >
+                   </li>
+                <%  } %>
+            
+            </ul>
+          <%}else{%>
+                <h3 style="padding: 20px;margin-top: 50px;font-family: cursive;">No Project is present in our database...</h3>
+          <%}%>
+        </div>
       
-      <a href="#create-project-form" id="create-project-btn">Create Project</a>
-      <form id="create-project-form" action="./project/create/" method="post">
-          <div>
-              <h1>Create Project</h1>
-          </div>
-          <div>
-              <input type="text" required name="name" placeholder="Enter project name">
-          <div>
-          <div>
-              <input type="text" required name="description" placeholder="Enter project description">
-          </div>
-          <div>
-              <input type="text" required name="author" placeholder="Enter project author name">
-          </div>
-          <div id="create-project-form-btn">
-              <input type="submit" value="Create Project">
-              <a href="#project-list" id="create-project-cancel-btn">Cancel</a>
-          </div>
-      </form>
+      <!-- create project form and button html code -->
+      <div id="create-project-form-and-btn">
+        <a href="#create-project-form" id="create-project-btn">Create Project</a>
+        <form id="create-project-form" action="./project/create/" method="post">
+            <div>
+                <h1>Create Project</h1>
+            </div>
+            <div>
+                <input type="text" required name="name" placeholder="Enter project name">
+            <div>
+            <div>
+                <input type="text" required name="description" placeholder="Enter project description">
+            </div>
+            <div>
+                <input type="text" required name="author" placeholder="Enter project author name">
+            </div>
+            <div id="create-project-form-btn">
+                <input type="submit" value="Create Project">
+                <a href="#project-list" id="create-project-cancel-btn">Cancel</a>
+            </div>
+        </form>
+      </div>
    </div>
+
 </body>
 </html>

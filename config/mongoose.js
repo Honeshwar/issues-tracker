@@ -10,14 +10,4 @@ mongoose.set('strictQuery', true);
 
 const dbConnection = mongoose.connection;
 
-// dbConnection.then((result) => {
-//     console.log('db is connected')
-// }).catch((err) => {
-//     console.log('db is not connected, an error come',err);
-// });
-
-// dbConnection.on('error',console.bind(console.log("error")));
-// dbConnection.once('open',() => {
-//     console.log('db is connected')});
-
 module.exports = dbConnection;

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details Page</title>
+    <!-- all stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/details.css">
 </head>
 <body>
 
-
+    <!-- header of details page -->
    <header id="details-header">
         <h1>Project Details</h1>
         <p>
@@ -27,9 +28,8 @@
         </nav>
    </header>
    
- 
-
-   <section id="search-issue">
+    <!-- search issue section in details page -->
+   <section id="search-issues">
         <h2>List of Issues</h2>
         <hr>
         <div id="search-inputs-and-btn-container">
@@ -54,7 +54,8 @@
         <hr>
    </section>
 
-   <section id="issue-table">
+    <!-- issues table section in details page -->
+   <section id="issues-table">
         <table >
             <thead>
                 <tr>
@@ -88,7 +89,9 @@
             </tfoot> -->
         </table>
    </section>
-<!-- ../  current(location) url path one path back -->
+
+    <!-- create issue form in details page -->
+    <!-- ../  current(location) url path one path back -->
    <form id="create-issue-form" action="../create-issue/<%= project.id%>" method="post">
    
     <div>
@@ -123,6 +126,7 @@
     
    </form>
 
+   <!-- all scripts -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script src="/js/details.js"></script>
 </body>

@@ -3,14 +3,15 @@ const express = require('express');//nodejs a single instance of express access 
 const router = express.Router();//MW func return
 const projectControllers = require("../controllers/projectControllers");//obj return that have all property that we exports 
 
+//all routes
 router.post('/create',projectControllers.create)
-router.post('/create-issue/:projectId',projectControllers.createIssue);// use ../  current(location) url path one path back
-
+// use '../ ' current(location) url path one path back
+router.post('/create-issue/:projectId',projectControllers.createIssue);
 router.get('/details/:projectId',projectControllers.details)
-
 router.post('/search-by-title/:projectId',projectControllers.searchByTitleOrLabel);
-
 router.post('/search-by-author/:projectId',projectControllers.searchByAuthor);
 
 router.get('/clear-filter/:projectId',projectControllers.clearFilter);
+
+//export router MW
 module.exports = router;

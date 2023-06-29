@@ -1,141 +1,105 @@
+// import models
 const Issues = require('../models/issueSchema');
-const Projects = require('../models/projectSchema');// import Project model from projectSchema where i created this model
-console.log("model...",Projects);
+const Projects = require('../models/projectSchema');
 
+// create project controller
 module.exports.create = (req,res)=>{
-    console.log(req.body);
+    //create project and redirect back
     Projects.create(req.body,(err,createProject)=>{
         if(err){
-            console.log("err",err);
+            console.log("err white create project controller",err);
             return;
         }
-        // console.log("createProject",createProject);
     })
     res.redirect('/');
-
-    // Projects.deleteOne({author:"df"});
-    // res.redirect('/'); 
 }
 
+// create issue controller
 module.exports.createIssue = async (req,res)=>{
    
     try {
+        // get data from request
         const formData = req.body;
         const projectId = req.params.projectId;
+        
+        //write program  to convert string separated by comas to an array
+        const labels = req.body.labels//(string)
+        let value="";
+        let labelsArray = [];
 
-         //code at create issue time
-        //  const labels =
-
-         const labels = req.body.labels//(string)
- 
-         //program write
-         let value="";
-         let labelsArray = [];
-         //iterate entire string and delimiter encounter
+        //iterate entire string and delimiter encounter
         for(let i=0;i<=labels.length;i++){
+
                 if(labels.charAt(i) === ',' || i === labels.length){//labels[i] or 
-                   value = value.trim();
-                   console.log('trim value', value);
+                    value = value.trim();
                     labelsArray.push(value);
                     value=""; 
-                }else{
-                    value += labels.charAt(i);
+                    continue;
                 }
-            console.log('label array',labelsArray,value);
-
+                value += labels.charAt(i);
             }
 
+        //create issue and find project by id and add issue to project.issues array
         const issue = await Issues.create({...formData,labels:labelsArray});
         const project = await Projects.findById(projectId);
-        console.log(" created issues ",issue,"projects",project);
     
         project.issues.push(issue.id);//over ram or memory saved
         project.save(); // on db get saved
 
-        console.log(" created issues ",issue,"projects",project);
         res.redirect('back');
-
-
-
     } catch (err) {
         if(err){
-            console.log("error while creating issue document in db",err);
+            console.log("error while creating issue controller",err);
             return;
         }
     }
 }
-
+// details page controller
 module.exports.details = async (req,res)=>{
-   const id = req.params.projectId;
-//    console.log(id);
-   try {
-
-    console.log(req.body,res.issues);
+   
+    try {
+    const id = req.params.projectId;
     const project = await Projects.findById(id).populate('issues');//populate, fill issue array with document related to dave id of issue
 
    // find authors
    const issues =  project.issues;
    const authors=[];
    for (let i = 0; i <issues.length; i++) {
-    if(!authors.includes(issues[i].author)){
-        authors.push(issues[i].author);
+        if(!authors.includes(issues[i].author)){
+            authors.push(issues[i].author);
+        }
     }
-    
-   }
 
-    // console.log('Projects at details',project,"issues",issues);
-    res.render('details',{
+    return res.render('details',{
         project:project,
         issues:issues,
-        authors});
+        authors
+    });
+
 
    } catch (error) {
-    console.log("error while details page get",error);
+        return console.log("error while details controller",error);
    }
-
-
-
-//    Projects.findById(id,(err,project)=>{//array of document(project)
-//     if(err){
-//       console.log('err in details project finding....',err);
-//       return;
-//     }
-//     console.log('Projects at details',project);
-//   res.render('details',{project:project});
-// })
 
 }
 
-
+// search issue by title or label controller
 module.exports.searchByTitleOrLabel = async (req,res)=>{
    
     try {
         const searchText = req.body.search;
         const id = req.params.projectId;
-        console.log(searchText,req.body);
-
+        //find project by id
         const project = await Projects.findById(id).populate('issues');//populate in issue array that created in project schema
-        // const issues = await Issues.find({author:searchText});
 
+        //search searchText in issues array for title or label 
         const issues = project.issues;
         const searchIssues = [];
-        console.log('searched author text',issues);
         for (let i = 0; i < issues.length; i++) {
-           if(issues[i].title === searchText || issues[i].labels.includes(searchText)){
-            searchIssues.push(issues[i]);
-           }
-            
+            if(issues[i].title === searchText || issues[i].labels.includes(searchText)){
+                searchIssues.push(issues[i]);
+            }   
         }
-        // search
-
-        // const issues = project.issues;
-        // const searchIssues = [];
-        // let i = 0;
-        // while(i<issues.length){
-        //     if(issues[i].title === req.body.search || issues[i].labels.includes(req.body.search)){
-        //     searchIssues.push(issues[i]);
-        //     }
-        // }
 
         //send ajax response
         if(req.xhr){
@@ -144,39 +108,34 @@ module.exports.searchByTitleOrLabel = async (req,res)=>{
                 data:{
                    issues:searchIssues
                 }
-            })
+            });
         }
 
     } catch (error) {
+        return console.log('error while search by title or label controller',error);
         
     }
 
 }
 
+// search issue by author name controller
 module.exports.searchByAuthor = async (req,res)=>{
    
     try {
-        //only payload data in req.body (post)
         const searchAuthor = req.body.author;
         const id = req.params.projectId;
-        console.log(searchAuthor,req.body);
-
+        //find project by id
         const project = await Projects.findById(id).populate('issues');//populate in issue array that created in project schema
-        // const issues = await Issues.find({author:searchText});
 
+        //search searchText in issues array for author
         const issues = project.issues;
         const newIssues = [];
-        console.log('searched author text',issues);
+
         for (let i = 0; i < issues.length; i++) {
-           if(issues[i].author === searchAuthor){
-            newIssues.push(issues[i]);
-           }
-            
+            if(issues[i].author === searchAuthor){
+                newIssues.push(issues[i]);
+            }  
         }
-
-        //logic to send data to client but not browser async/ajax 
-
-        // console.log('searched text',issues,req.xhr);
 
         //send ajax response
         if(req.xhr){
@@ -185,26 +144,21 @@ module.exports.searchByAuthor = async (req,res)=>{
                 data:{
                    issues:newIssues
                 }
-            })
+            });
         }
     } catch (error) {
-        
+        return console.log('error while search by author controller',error);
     }
 
 }
 
+// clear all search filter controller
 module.exports.clearFilter = async (req,res)=>{
    
     try {
         const id = req.params.projectId;
-        console.log(req.url,id);
+        //find project by id
         const project = await Projects.findById(id).populate('issues');//populate in issue array that created in project schema
-
-        console.log('searched author text',project);
-
-        //logic to send data to client but not browser async/ajax 
-
-        console.log('searched text',project,req.xhr);
 
         //send ajax response
         if(req.xhr){
@@ -213,10 +167,10 @@ module.exports.clearFilter = async (req,res)=>{
                 data:{
                    issues:project.issues
                 }
-            })
+            });
         }
     } catch (error) {
-        
+        return console.log('error while clear filter controller',error);
     }
 
 }
